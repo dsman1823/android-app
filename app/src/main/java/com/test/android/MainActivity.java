@@ -6,6 +6,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.test.android.util.HttpUtils;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -17,5 +19,11 @@ public class MainActivity extends AppCompatActivity {
     public void goToChild(View view) {
         Intent intent = new Intent(this, ChildActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        HttpUtils.sendLog(this, "message from main page");
     }
 }
